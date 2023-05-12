@@ -2,7 +2,7 @@
 
 class Banco
 {
-    private static $dbNome = 'agenda1';
+    private static $dbNome = 'agenda';
     private static $dbHost = 'localhost';
     private static $dbUsuario = 'root';
     private static $dbSenha = '';
