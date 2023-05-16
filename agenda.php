@@ -1,5 +1,13 @@
 <?php
 
+session_start();
+// Verificar se a sessão NÃO existe
+if(!isset($_SESSION['dados'])){
+  header('Location: login.php'); // Redirecionando o usuário de volta
+  exit();
+}
+
+
 require_once('classes/Contato.class.php');
 
 $c = new Contato();
