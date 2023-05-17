@@ -2,7 +2,7 @@
 
 $erro = ""; 
 // if (se) (isset{está setado} (_$variavel[campo]))
-if(isset($GET['id'])){
+if(isset($_GET['id'])){
 require_once('classes/contato.class.php'); 
 
 $c = new contato(); 
@@ -12,7 +12,7 @@ $resultado = $c->BuscarPorID();
 
 // Verificar se existem linhas no $resultado;
     if(count($resultado) == 0){
-       $erro = "Contato não entrado!";
+       $erro = "Contato não encontrado!";
     }
 
 }else {
