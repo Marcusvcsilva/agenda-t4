@@ -1,6 +1,7 @@
 <?php
+session_start();
 
-if(isset($_GET['id'])){
+if(isset($_GET['id']) and isset($_SESSION['dados'])){
     require_once('../classes/Contato.class.php');
     $c = new Contato();
     
@@ -13,7 +14,7 @@ if(isset($_GET['id'])){
         echo "ID não encontrado!";
     }
 }else{
-    echo "Defina o ID do item a ser apagado";
+    echo "Defina o ID do item a ser apagado ou faça o login na sua conta";
 }
 
 
