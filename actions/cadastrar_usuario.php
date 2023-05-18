@@ -9,11 +9,17 @@
         $u->nome = $_POST['nome'];
         $u->senha = $_POST['senha'];
         $u->email = $_POST['email'];
+
+        try{
         $u->cadastrar();
         // echo "Contato cadastrado com sucesso!";
         // Redirecionar o jovem de volta à agenda:
-        header('Location: ../login.php');
+        header('Location: ../login.php?msg=0');
         exit();
+        }catch(PDOException $e){
+            header('Location: ../login.php?erro=1');
+            exit();
+        }
     }else{
         echo "Essa página deve ser carregada por POST!";
     }
