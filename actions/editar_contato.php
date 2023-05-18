@@ -1,6 +1,8 @@
 <?php
 
-if($_SERVER['REQUEST_METHOD'] == 'POST'){
+session_start(); 
+
+if($_SERVER['REQUEST_METHOD'] == 'POST' and isset($_SESSION['dados'])){
 
 require_once('../classes/Contato.class.php');
 
@@ -14,9 +16,11 @@ $c->telefone = $_POST['telefone'];
 if($c->Atualizar() == 1){
     // Deu Certo!
     // Redirecionar:
-    header('Location: ../agenda.php');
+    header('Location: ../agenda.php?msg=3');
+    exit();
 }else{
-    echo "Falha ao modificar.";
+    header('Location: ../agenda.php?erro=4');
+    exit();
 }
 } else{
     echo "A página deve ser carregada por POST . <br>";
