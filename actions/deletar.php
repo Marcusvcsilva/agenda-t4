@@ -8,10 +8,11 @@ if(isset($_GET['id']) and isset($_SESSION['dados'])){
     $c->id = $_GET['id'];
     
     if ($c->Deletar() == 1){
-         header("Location: ../agenda.php");
+         header("Location: ../agenda.php?msg=2");
          exit();
     }else{
-        echo "ID não encontrado!";
+        header("Location: ../agenda.php?erro=3");
+        exit();
     }
 }else{
     echo "Defina o ID do item a ser apagado ou faça o login na sua conta";
