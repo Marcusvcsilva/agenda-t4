@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 // Verificar se a página está sendo carregada por POST:
     if($_SERVER['REQUEST_METHOD'] == 'POST' and isset($_SESSION['dados'])){
@@ -17,7 +18,7 @@
 
         // echo "Contato cadastrado com sucesso!";
         // Redirecionar o jovem de volta à agenda:
-        header('Location: ../agenda.php');
+        header('Location: ../agenda.php?msg=1');
         exit();
     }else{
         echo "Essa página deve ser carregada por POST!";
