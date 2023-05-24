@@ -53,6 +53,7 @@ class Contato{
         // Retornar quantidade de linhas apagadas:
         return $comando->rowCount();
     }
+    
     public function BuscarPorID(){
         $banco = Banco::conectar();
         $sql = "SELECT * FROM contatos WHERE id = ?";
