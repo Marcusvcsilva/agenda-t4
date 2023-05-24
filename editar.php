@@ -1,24 +1,27 @@
 <?php 
-
-$erro = ""; 
+session_start();
+$erro = "";
+ 
 // if (se) (isset{está setado} (_$variavel[campo]))
-if(isset($_GET['id'])){
-require_once('classes/contato.class.php'); 
 
-$c = new contato(); 
-$c->id = $_GET['id']; 
-
-$resultado = $c->BuscarPorID(); 
-
-// Verificar se existem linhas no $resultado;
-    if(count($resultado) == 0){
-       $erro = "Contato não encontrado!";
+if(isset($_SESSION['dados'])){
+  if(isset($_GET['id'])){
+    require_once('classes/contato.class.php'); 
+    
+    $c = new contato(); 
+    $c->id = $_GET['id']; 
+    
+    $resultado = $c->BuscarPorID(); 
+    
+    // Verificar se existem linhas no $resultado;
+        if(count($resultado) == 0){
+           $erro = "Contato não encontrado!";
+        }
+    
+    }else {
+      $erro = "ID não setado!";
     }
-
-}else {
-  $erro = "ID não setado!";
 }
-
 
 ?> 
 
