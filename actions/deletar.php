@@ -18,5 +18,4 @@ if(isset($_GET['id']) and isset($_SESSION['dados'])){
     echo "Defina o ID do item a ser apagado ou faça o login na sua conta";
 }
 
-
 ?>
